@@ -17,6 +17,12 @@ public class UserService {
 	      List<User> queryList = userMapper.findAll();
 	      return queryList;
 	   }
+	   
+	   public void Insert(User user) {
+		     userMapper.Insert(user);
+	   }
+}	   
+	  
 
 
-}
+

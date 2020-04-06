@@ -2,7 +2,6 @@ package com.example.demo.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.model.User;
 
@@ -10,5 +9,7 @@ import com.example.demo.model.User;
 public interface UserMapper {
 	
 	public List<User> findAll();
+	
+	public Void Insert(User user);
 
 }
