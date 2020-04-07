@@ -10,6 +10,12 @@ public interface UserMapper {
 	
 	public List<User> findAll();
 	
-	public Void Insert(User user);
-
+	public void insert(User user);
+	
+	public void delete (Integer id);
+	
+	public void update(User user);
+	
+	public User getById(Integer id);
+	
 }

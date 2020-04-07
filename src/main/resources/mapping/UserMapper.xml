@@ -13,8 +13,20 @@
         select * from User
     </select>
     
-    <insert id="Insert" parameterType="com.example.demo.model.User" >
+    <select id="getById" parameterType="Integer" resultType="com.example.demo.model.User">
+    	select * from User where id=#{id}
+    </select>
+    
+    <insert id="insert" parameterType="com.example.demo.model.User" >
         INSERT INTO User (id, name,pass) VALUES (#{id}, #{name}, #{pass});
     </insert>
+    
+    <delete id="delete" parameterType="Integer">
+     	delete from User where id=#{id}    	
+    </delete>
+    
+    <update id="update" parameterType="com.example.demo.model.User">
+    	 update User set name=#{name}, pass=#{pass} where id=#{id}
+    </update>
  
 </mapper>

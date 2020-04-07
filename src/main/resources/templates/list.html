@@ -4,11 +4,13 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -18,17 +20,13 @@
   <table id="table-list" class="table table-striped">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Pass</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
+    <tbody id="table1" >
+     
       
     </tbody>
   </table>
@@ -37,21 +35,18 @@
 </body>
 
 <script  type="text/javascript">
-$(document).ready(function(){
+ 
+$(document).ready(function(){  
 	console.log("hello");
-	$.ajax({
-		type : "GET",
-		contentType : "application/json",
-		url : "/list",
-		dataType : 'json',			
-		success : function(data) {
-			console.log(data);
-			var totalResutl = "<tr><th>ID</th><th>User name</th><th>Password</th><th>Edit</th></tr>";	
-			$('#table-list').html(totalResutl);
-		}
-
-	});	
-});
-</script>
-
+          $("#table1").show();  
+          $.getJSON("/getlist", function(data){  
+       	   console.log(data);
+               $.each(data, function(key, value){  
+                    $("#table1").append("<tr><td>"+value.id+"</td><td>"+value.name+"</td><td>"+value.pass+"</td><td><a href='edit/"+value.id+"' >Edit</a></td><td><a href='delete/"+value.id+"' >delete</a></td></tr>");  
+                    
+               });  
+          });  
+      
+});  
+</script>  
 </html>

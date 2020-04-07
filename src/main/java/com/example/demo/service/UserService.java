@@ -18,8 +18,18 @@ public class UserService {
 	      return queryList;
 	   }
 	   
-	   public void Insert(User user) {
-		     userMapper.Insert(user);
+	   public void insert(User user) {
+		     userMapper.insert(user);
+	   }
+	   
+	   public void  delete(Integer id) {
+		   userMapper.delete(id);
+	   }
+	   public void update(User user) {
+		   userMapper.update(user);
+	   }
+	   public User getById(Integer id) {
+		  return userMapper.getById(id);
 	   }
 }	   
 	  
