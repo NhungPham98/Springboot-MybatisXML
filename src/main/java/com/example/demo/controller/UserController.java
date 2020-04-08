@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +25,7 @@ public class UserController {
 		return "register";
 	} 
 	
+	@Autowired
 	private UserService service;
 	
 	@RequestMapping("/submitregister")
@@ -33,24 +34,16 @@ public class UserController {
 		return "list";
 	}
 	
-	@RequestMapping("/edit/{id}")
-	public String Edit(@PathVariable(value = "id") int id, Model model) {
-		User user = new User();
-		user = service.getById(id);
-		model.addAttribute("user", user);
-		return "userEdit";
-	}
-	
 	@PostMapping("/update")
-	public String UpdateUser(User user,@PathVariable(value = "id") int id) {
+	public String UpdateUser(User user) {
 		service.update(user);
-		return "userList";
+		return "list";
 	}
 
 	@RequestMapping("/delete/{id}")
 	public String DeleteUser(@PathVariable(value = "id") int id) {
 		service.delete(id);
-		return "userList";
+		return "list";
 	}
 	
 	@RequestMapping("/list")

@@ -13,22 +13,22 @@
 
 <div class="container">
   <h2>Register form</h2>
-  <form action="/submitregister">
+  <form action="/submitregister" method="post">
   <div class="form-group">
       <label >ID:</label>
-      <input type="text" class="form-control" id="ID" placeholder="Enter User Name" name="id" th:value="${user.id}">
+      <input type="text" class="form-control" id="id" placeholder="Enter User Name" name="id" >
     </div>
     
     <div class="form-group">
       <label >User Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter User Name" name="name" th:value="${user.name}">
+      <input type="text" class="form-control" id="name" placeholder="Enter User Name" name="name" >
     </div>
     
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="text" class="form-control" id="pass" placeholder="Enter password" name="pass" th:value="${user.pass}">
+      <input type="text" class="form-control" id="pass" placeholder="Enter password" name="pass" >
     </div>
     
-    <input type="button" id="RegisterId" class="btn btn-primary" value="Register">
+    <input type="submit" id="RegisterId" class="btn btn-primary" value="Register">
   </form>
 </div>

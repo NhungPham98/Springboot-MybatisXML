@@ -42,7 +42,7 @@ $(document).ready(function(){
           $.getJSON("/getlist", function(data){  
        	   console.log(data);
                $.each(data, function(key, value){  
-                    $("#table1").append("<tr><td>"+value.id+"</td><td>"+value.name+"</td><td>"+value.pass+"</td><td><a href='edit/"+value.id+"' >Edit</a></td><td><a href='delete/"+value.id+"' >delete</a></td></tr>");  
+                    $("#table1").append("<tr><td>"+value.id+"</td><td>"+value.name+"</td><td>"+value.pass+"</td><td><a href='/edit/"+value.id+"' >Edit</a></td><td><a href='delete/"+value.id+"' >delete</a></td></tr>");  
                     
                });  
           });  

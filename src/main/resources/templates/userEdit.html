@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>jwats</title>
+<title>Edit</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -12,50 +12,18 @@
 <body>
 
 <div class="container">
-  <h2>Edit form</h2>
-  <form action="/update/th:value='${user.id}'" method="post">
-  <div class="form-group">
-      <label >ID:</label>
-      <input type="text" class="form-control" id="ID" placeholder="Enter User Name" name="id" th:value="${user.id}">
-    </div>
-    
-    <div class="form-group">
-      <label >User Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter User Name" name="name" th:value="${user.name}">
-    </div>
-    
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="text" class="form-control" id="pass" placeholder="Enter password" name="pass" th:value="${user.pass}">
-    </div>
-    
-    <input type="submit" id="changeId" class="btn btn-primary" value="change">
-  </form>
-</div>
-
-<script type="text/javascript">
-
-
-// var jsonObject={
-// 		name: $("#name").val(),
-// 	    pass: $("#pass").val(),
-// 	    id: $("#ID").val()
-// 	}
-// console.log(jsonObject);
-// 	$("#changeId").click(function(){
-		
-// 		$.post("/update",jsonObject,
-// 				  function(data, status){
-// 				    console.log(data);
-// 				  });
-// 		});
-
-
-	
-
-  
-
-</script>
+<h2>Edit form</h2>
+    <form action="/update"  method="post">
+    <input type="hidden" placeholder="username" name="id" th:value="${user.id}" />
+     <div class="form-group">
+      <input type="text" class="form-control" placeholder="lastname" name="name" th:value="${user.name}"/>
+      </div>
+      <div class="form-group">
+      <input type="text" class="form-control"  placeholder="password" name="pass" th:value="${user.pass}"/>
+      </div>
+     <button type="submit" class="btn btn-info">edit</button> 
+    </form>
+  </div>
 
 </body>
 </html>
