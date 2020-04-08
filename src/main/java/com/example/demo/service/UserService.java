@@ -22,13 +22,13 @@ public class UserService {
 		     userMapper.insert(user);
 	   }
 	   
-	   public void  delete(Integer id) {
+	   public void  delete(int id) {
 		   userMapper.delete(id);
 	   }
 	   public void update(User user) {
 		   userMapper.update(user);
 	   }
-	   public User getById(Integer id) {
+	   public User getById(int id) {
 		  return userMapper.getById(id);
 	   }
 }	   

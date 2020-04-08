@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.UserMapper">
 	<resultMap id="baseResultMap" type="User" >
-        <result column="id" property="id" jdbcType="INTEGER" />
+        <result column="id" property="id" jdbcType="NUMERIC" />
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="pass" property="pass" jdbcType="VARCHAR" />
     </resultMap>
@@ -13,7 +13,7 @@
         select * from User
     </select>
     
-    <select id="getById" parameterType="Integer" resultType="com.example.demo.model.User">
+    <select id="getById" parameterType="int" resultType="com.example.demo.model.User">
     	select * from User where id=#{id}
     </select>
     
@@ -21,7 +21,7 @@
         INSERT INTO User (id, name,pass) VALUES (#{id}, #{name}, #{pass});
     </insert>
     
-    <delete id="delete" parameterType="Integer">
+    <delete id="delete" parameterType="int">
      	delete from User where id=#{id}    	
     </delete>
     

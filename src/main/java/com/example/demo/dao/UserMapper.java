@@ -12,10 +12,10 @@ public interface UserMapper {
 	
 	public void insert(User user);
 	
-	public void delete (Integer id);
+	public void delete (int id);
 	
 	public void update(User user);
 	
-	public User getById(Integer id);
+	public User getById(int id);
 	
 }

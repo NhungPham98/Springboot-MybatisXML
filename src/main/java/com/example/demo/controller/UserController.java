@@ -34,7 +34,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/edit/{id}")
-	public String Edit(@PathVariable(value = "id") Integer id, Model model) {
+	public String Edit(@PathVariable(value = "id") int id, Model model) {
 		User user = new User();
 		user = service.getById(id);
 		model.addAttribute("user", user);
@@ -48,7 +48,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/delete/{id}")
-	public String DeleteUser(@PathVariable(value = "id") Integer id) {
+	public String DeleteUser(@PathVariable(value = "id") int id) {
 		service.delete(id);
 		return "userList";
 	}
